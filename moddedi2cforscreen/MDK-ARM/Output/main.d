@@ -13,6 +13,7 @@
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_def.h \
   C:\Keil_v5\ARM\ARMCLANG\include\stdio.h \
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_rcc_ex.h \
+  ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_exti.h \
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_gpio.h \
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_gpio_ex.h \
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_cortex.h \
@@ -23,6 +24,5 @@
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_tim.h \
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_tim_ex.h \
   ..\..\..\..\..\..\Drivers\PY32F0xx_HAL_Driver\Inc\py32f0xx_hal_uart.h \
-  ..\..\..\..\..\..\Drivers\BSP\PY32F002xx_Start_Kit\py32f002xx_Start_Kit.h \
   ..\Inc\ssd1306.h ..\Inc\fonts.h \
   C:\Keil_v5\ARM\ARMCLANG\include\string.h
