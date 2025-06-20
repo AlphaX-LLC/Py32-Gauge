@@ -31,59 +31,37 @@ extern "C" {
 // #include "py32f002xx_Start_Kit.h" // Only if you use specific BSP functions from it
 
 /* Exported types ------------------------------------------------------------*/
-/* USER CODE BEGIN ET */
 // Add custom typedefs here if needed
-/* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
 // Add custom constants here if needed
-/* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
-/* USER CODE BEGIN EM */
-// Add custom macros here if needed (example below was from your original)
-// #define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__)))
-/* USER CODE END EM */
+// #define COUNTOF(__BUFFER__)   (sizeof(__BUFFER__) / sizeof(*(__BUFFER__))) // Example from your original
 
 /* Exported functions prototypes ---------------------------------------------*/
 void APP_ErrorHandler(void);
-/* USER CODE BEGIN EFP */
 // Add other globally visible function prototypes from main.c if needed
-/* USER CODE END EFP */
 
 /* Exported variables ------------------------------------------------------- */
-/* USER CODE BEGIN EV */
 extern I2C_HandleTypeDef hi2c1;             // I2C handle for SSD1306 display
-extern ADC_HandleTypeDef hadc1;             // ADC handle for pressure sensor input (PA6)
-extern volatile uint32_t g_rpm_pulse_count; // Pulse counter for RPM measurement (PA1)
-/* USER CODE END EV */
+extern ADC_HandleTypeDef hadc1;             // ADC handle for pressure sensor input (PA5)
+
+// RPM related global variables for millisecond timing method
+extern volatile uint32_t g_last_valid_pulse_time_ms;   // Timestamp of the last valid pulse (milliseconds)
+extern volatile uint32_t g_current_pulse_interval_ms;  // Time between the last two valid pulses (milliseconds)
+extern volatile uint8_t  g_new_rpm_data_available;     // Flag set by ISR for new RPM data (0 or 1)
 
 /* Private defines -----------------------------------------------------------*/
 // The defines below appear to be from a different example or for an I2C configuration
 // (on PB6/PB7) not currently active in our main setup (which uses PA2/PA3 for I2C).
-// They are commented out for clarity and to avoid potential confusion.
+// They are commented out for clarity.
 /*
 #define TXBUFFERSIZE                      (COUNTOF(aTxBuffer) - 1) // aTxBuffer not defined globally
 #define RXBUFFERSIZE                      TXBUFFERSIZE
 
 #define I2Cx                            I2C
-#define I2Cx_CLK_ENABLE()               __HAL_RCC_I2C1_CLK_ENABLE()
-#define I2Cx_SDA_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOB_CLK_ENABLE()
-#define I2Cx_SCL_GPIO_CLK_ENABLE()      __HAL_RCC_GPIOB_CLK_ENABLE() 
-
-#define I2Cx_FORCE_RESET()              __HAL_RCC_I2C1_FORCE_RESET()
-#define I2Cx_RELEASE_RESET()            __HAL_RCC_I2C1_RELEASE_RESET()
-
-#define I2Cx_SCL_PIN                    GPIO_PIN_6
-#define I2Cx_SCL_GPIO_PORT              GPIOB
-#define I2Cx_SDA_PIN                    GPIO_PIN_7
-#define I2Cx_SDA_GPIO_PORT              GPIOB
-
-#define I2Cx_EV_IRQn                    I2C1_EV_IRQn
-#define I2Cx_ER_IRQn                    I2C1_ER_IRQn
-#define I2Cx_EV_IRQHandler              I2C1_EV_IRQHandler
-#define I2Cx_ER_IRQHandler              I2C1_ER_IRQHandler
+// ... (rest of old I2Cx defines commented out) ...
 */
 
 #ifdef __cplusplus
